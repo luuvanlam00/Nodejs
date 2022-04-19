@@ -1,0 +1,91 @@
+<%- include('frontend/layout/header.ejs')%>
+      <div class="clearfix"></div>
+      <div class="hom-slider">
+        <div class="container">
+           <div id="sequence">
+              
+           </div>
+        </div>
+        <div class="promotion-banner">
+           <div class="container">
+              <div class="row">
+                 <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="promo-box"><img src="/images/frontend/28.jpg" alt=""></div>
+                 </div>
+                 <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="promo-box"><img src="/images/frontend/29.jpg" alt=""></div>
+                 </div>
+                 <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="promo-box"><img src="/images/frontend/30.jpg" alt=""></div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="clearfix"></div>
+     <div class="container_fullwidth">
+        <div class="container">
+           <div class="hot-products">
+              <h3 class="title"><strong>Hot</strong> Products</h3>
+     
+              <ul id="hot">
+     
+                 <li>
+                    <div class="row">
+                     <%   sanpham1.forEach(function(sanpham){  %>
+                          <div class="col-md-3 col-sm-6">
+                             <div class="products">
+                             <% if(sanpham.giakm > 0){ %>
+                             <div class="offer">- <%=  ((sanpham.giaban - sanpham.giakm) * 100 / sanpham.giaban).toFixed(0) %>%</div> 
+                            <% }%>
+                                <div class="thumbnail"><a href="/sanpham/chitiet/<%= sanpham.masp %>"><img src="../images/images/<%=sanpham.anh%>" alt="Product Name" width="230px" height="280px"></a></div>
+                                <div class="productname"><%= sanpham.tensp %></div>
+                                <% if(sanpham.giakm > 0){ %>
+                                <h4 class="price"><%= sanpham.giakm.toLocaleString() %> VND</h4>
+                                    <%}
+                                    else{%>     
+                                       <h4 class="price"><%= sanpham.giaban.toLocaleString() %> VND</h4> <%}%>
+                                <div class="button_group"><a class="button add-cart" href="/sanpham/chitiet/<%= sanpham.masp %>">Đặt mua</a></div>
+                             </div>
+                          </div>
+                      <% }) %>
+                    </div>
+                 </li>
+     
+              </ul>
+     
+           </div>
+           <div class="clearfix"></div>
+           <div class="featured-products">
+              <h3 class="title"><strong>Featured </strong> Products</h3>
+              <ul id="featured">
+                 <li>
+                  <div class="row">
+                     <%   sanpham2.forEach(function(sanpham){  %>
+                          <div class="col-md-3 col-sm-6">
+                             <div class="products">
+                             <% if(sanpham.giakm > 0){ %>
+                             <div class="offer">- <%=  ((sanpham.giaban - sanpham.giakm) * 100 / sanpham.giaban).toFixed(0) %>%</div> 
+                            <% }%>
+                                <div class="thumbnail"><a href="/sanpham/chitiet/<%= sanpham.masp %>"><img src="../images/images/<%=sanpham.anh%>" alt="Product Name" width="230px" height="280px"></a></div>
+                                <div class="productname"><%= sanpham.tensp %></div>
+                                <% if(sanpham.giakm > 0){ %>
+                                <h4 class="price"><%= sanpham.giakm.toLocaleString() %> VND</h4>
+                                    <%}
+                                    else{%>     
+                                       <h4 class="price"><%= sanpham.giaban.toLocaleString() %> VND</h4> <%}%>
+                                <div class="button_group"><a class="button add-cart" href="/sanpham/chitiet/<%= sanpham.masp %>">Đặt mua</a></div>
+                             </div>
+                          </div>
+                      <% }) %>
+                    </div>
+                 </li>
+              </ul>
+           </div>
+           <div class="clearfix"></div>
+     
+        </div>
+     </div>
+     
+      <div class="clearfix"></div>
+      <%- include ('frontend/layout/footer.ejs')%>

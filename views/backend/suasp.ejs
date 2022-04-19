@@ -1,0 +1,62 @@
+<%- include('layout/header.ejs')%>
+<div class="ibox-content">
+    <h1>Sửa sản phẩm</h1>
+    <form method="post" class="form-horizontal" action="/quantri/sanpham/update" enctype="multipart/form-data">
+        <input type="hidden" name="masp" value="<%=sanpham.masp%>">
+        <div class="form-group"><label class="col-sm-2 control-label">Tên sản phẩm</label>
+    
+            <div class="col-sm-8"><input type="text" required="" class="form-control"  name="tensp" value="<%=sanpham.tensp%>"/></div>
+        </div>
+        <div class="form-group"><label class="col-sm-2 control-label">Ảnh sản phẩm</label>
+    
+        <div class="col-sm-8"><input type="file"  class="form-control"  name="anh"/></div>
+        </div>
+        <div class="form-group"><label class="col-sm-2 control-label">Mô tả</label>
+    
+        <div class="col-sm-8"><textarea   require="" class="form-control"  name="mota" ><%= sanpham.mota%> </textarea></div>
+        </div>
+        
+     
+          <div class="form-group"><label class="col-sm-2 control-label">Chi tiết</label>
+    
+            <div class="col-sm-8"><textarea required="" class="form-control"  name="chitiet"><%= sanpham.chitiet%></textarea></div>
+        </div>
+        <div class="form-group"><label class="col-sm-2 control-label">Giá bán </label>
+    
+        <div class="col-sm-8"><input type="text" required="" class="form-control"  name="giaban" value="<%= sanpham.giaban%>"/></div>
+        </div>
+        <div class="form-group"><label class="col-sm-2 control-label">Giá khuyến mại</label>
+    
+        <div class="col-sm-8"><input type="text" required="" class="form-control"  name="giakm" value="<%= sanpham.giakm%>"/></div>
+        </div>
+    
+        <div class="form-group"><label class="col-sm-2 control-label">Loại sản phẩm</label>
+    
+        <div class="col-sm-8"><select class="form-control m-b" name="maloai">
+            <% var i = 0; danhmuc.forEach(function(danhmuc){ var selected = (danhmuc.maloai == sanpham.maloai) ? "selected" : "" %>
+            <option value="<%=danhmuc.maloai %>"  <%=selected%> ><%=danhmuc.tenloai %></option>
+            
+            <% }) %>
+        </select>
+        </div>
+        </div>
+        <div class="form-group"><label class="col-sm-2 control-label">Nhà cung cấp</label>
+        <div class="col-sm-8"><select class="form-control m-b" name="mancc">
+            <% var i = 0 ;ncc.forEach(function(ncc){ var selected = (ncc.mancc == sanpham.mancc) ? "selected" : "" %>
+            <option value="<%=ncc.mancc %>"  <%=selected%>><%=ncc.tenncc %></option>
+            
+            <% }) %>
+        </select>
+        </div>
+        </div>
+     
+     
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+            <button class="btn btn-primary" type="submit" name="sua">Sửa</button>        
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('layout/footer.ejs')%>

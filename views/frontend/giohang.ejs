@@ -1,0 +1,140 @@
+<%- include('layout/header.ejs')%>
+<div class="container_fullwidth">
+
+  <div class="container shopping-cart">
+
+    <div class="row">
+    
+        <div class="col-md-12">
+          <h3 class="title">
+            Giỏ hàng
+          </h3>
+          <div class="clearfix">
+          </div>
+          <form id="giohang" method="post">
+            <table class="shop-table">
+              <thead>
+                <tr>
+                  <th>
+                    Ảnh
+                  </th>
+                  <th>
+                    Chi tiết
+                  </th>
+                  <th>
+                    Giá bán
+                  </th>
+                  <th>
+                    Số lượng
+                  </th>
+                  <th>
+                    Tổng tiền
+                  </th>
+                  <th>
+                    Xóa
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% var total = 0; if(data){ data.forEach(function(item){ total += item.tien %>
+                  <tr>
+                    <td>
+                      <img src="../../images/images/<%=item.item.anh%>" alt="">
+                    </td>
+                    <td>
+                      <div class="shop-details">
+                        <div class="productname">
+                          <%=item.item.tensp %>
+                        </div>
+                        <p>
+                         Mô tả:
+                          <a class="review_num" href="#">
+                            <%=item.item.chitiet %>
+                          </a>
+                        </p>
+
+                        <p>
+                          Mã sản phẩm :
+                          <strong class="pcode">
+                            <%=item.item.masp %>
+                          </strong>
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5>
+                        <%=item.item.giakm.toLocaleString() %>
+                      </h5>
+                    </td>
+                    <td>
+                      <input type="number" value="<%=item.soluong %>"  class="sl_<%=item.item.masp %>" min="1" max="" name="sl_<%=item.item.masp %>" style="width: 80px;" onchange="updateCart('<%=item.item.masp %>')" />
+                    </td>
+                    <td>
+                      <h5>
+                        <strong class="red">
+                          <%=item.tien.toLocaleString() %>
+                      </h5>
+                      </strong>
+                      </h5>
+                    </td>
+                    <td>
+
+                      <a  href="javascript:;" onclick="deleteCart('<%=item.item.masp %>')">
+                        <img src="../../images/frontend/remove.png" alt="">
+                      </a>
+                    </td>
+                  </tr>
+                  <% }) %>
+              </tbody> 
+            
+            <tfoot>
+              <tr>
+                <td colspan="6">
+
+                  <button>
+                    <a href="/sanpham">Tiếp tục mua hàng</a>
+                  </button>
+
+                </td>
+              </tr>
+            </tfoot>
+            </table>
+          </form>
+          <div class="row">
+            <div class="col-md-4 col-sm-6" style="float: right;">
+              <div class="shippingbox">
+
+                <div class="grandtotal">
+                  <h5>
+                    Tổng tiền
+                  </h5>
+                  <span>
+                    <%= total.toLocaleString() %>
+                  </span>
+                </div>
+                <button style="margin-left: 50px;">
+                  <a href="/dathang">Đặt hàng</a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">
+          </div>
+
+
+        </div>
+        <%}else{%>
+        <h3>Không có sản phẩm trong giỏ hảng!</h3>
+        <a href="/sanpham"><button type="button" class="btn btn-primary btn-sm">Quay lại mua hàng</button></a>
+          <%}%>
+    </div>
+
+    <div class="clearfix">
+    </div>
+
+  </div>
+
+
+
+</div>
+<%- include('layout/footer.ejs')%>

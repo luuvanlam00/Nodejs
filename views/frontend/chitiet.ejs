@@ -1,0 +1,351 @@
+<%- include('layout/header.ejs')%>
+<div class="container_fullwidth">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="products-details">
+            <div class="preview_image">
+              <div class="preview-small">
+                <img id="zoom_03" src="../../images/images/<%=sanpham1.anh%>" alt="">
+  
+  
+              </div>
+  
+  
+            </div>
+            <div class="products-description">
+              <h5 class="name">
+                <%= sanpham1.tensp %>
+              </h5>
+  
+              <p>
+  
+                <span class=" light-red" style="font-size: 15px;">
+                  Tình trạng:Còn hàng
+                </span>
+              </p>
+              <p style="font-size: 15px;">
+                <%= sanpham1.chitiet %>
+              </p>
+              <hr class="border">
+              <div class="price" style="font-size: 15px;">
+                Giá :
+                <% if(sanpham1.giakm > 0){ %>
+                    <span class="new_price"><%= sanpham1.giakm.toLocaleString() %> <sup>VND </sup></span>
+                        <%}
+                        else{%>     
+                            <span class="new_price"><%= sanpham1.giaban.toLocaleString() %> <sup>VND </sup></span><%}%>
+               
+                <% if(sanpham1.giakm > 0){ %>
+                <span class="old_price"><%= sanpham1.giaban.toLocaleString() %> <sup>VND </sup></span><%}%>
+           
+              </div>
+  
+              <hr class="border">
+  
+              <div class="wided">
+                <div class="button_group" style="float: left;">
+                  <a href="/add-cart/<%=sanpham1.masp %>"><button class="button">Đặt mua</button>
+  
+                  </a>
+           
+                </div>
+              </div>
+              <div class="clearfix">
+              </div>
+              <hr class="border">
+              <img src="../../images/frontend/share.png" alt="" class="pull-right">
+            </div>
+          </div>
+          <div class="clearfix">
+          </div>
+          <div class="tab-box">
+            <div id="tabnav">
+              <ul>
+                <li>
+                  <a href="#Descraption">
+                    Mô tả
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content-wrap">
+              <div class="tab-content" id="Descraption">
+                <p style="font-size: 15px; line-height: 2;">
+                    <%= sanpham1.mota %>
+                </p>
+  
+              </div>
+  
+              <div class="tab-content" id="Reviews">
+                <form>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          &nbsp;
+                        </th>
+                        <th>
+                          1 star
+                        </th>
+                        <th>
+                          2 stars
+                        </th>
+                        <th>
+                          3 stars
+                        </th>
+                        <th>
+                          4 stars
+                        </th>
+                        <th>
+                          5 stars
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Quality
+                        </td>
+                        <td>
+                          <input type="radio" name="quality" value="Blue" />
+                        </td>
+                        <td>
+                          <input type="radio" name="quality" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="quality" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="quality" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="quality" value="">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Price
+                        </td>
+                        <td>
+                          <input type="radio" name="price" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="price" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="price" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="price" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="price" value="">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Value
+                        </td>
+                        <td>
+                          <input type="radio" name="value" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="value" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="value" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="value" value="">
+                        </td>
+                        <td>
+                          <input type="radio" name="value" value="">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <div class="form-row">
+                        <label class="lebel-abs">
+                          Your Name
+                          <strong class="red">
+                            *
+                          </strong>
+                        </label>
+                        <input type="text" name="" class="input namefild">
+                      </div>
+                      <div class="form-row">
+                        <label class="lebel-abs">
+                          Your Email
+                          <strong class="red">
+                            *
+                          </strong>
+                        </label>
+                        <input type="email" name="" class="input emailfild">
+                      </div>
+                      <div class="form-row">
+                        <label class="lebel-abs">
+                          Summary of You Review
+                          <strong class="red">
+                            *
+                          </strong>
+                        </label>
+                        <input type="text" name="" class="input summeryfild">
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="form-row">
+                        <label class="lebel-abs">
+                          Your Name
+                          <strong class="red">
+                            *
+                          </strong>
+                        </label>
+                        <textarea class="input textareafild" name="" rows="7">
+                              </textarea>
+                      </div>
+                      <div class="form-row">
+                        <input type="submit" value="Submit" class="button">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-content">
+                <div class="review">
+                  <p class="rating">
+                    <i class="fa fa-star light-red">
+                    </i>
+                    <i class="fa fa-star light-red">
+                    </i>
+                    <i class="fa fa-star light-red">
+                    </i>
+                    <i class="fa fa-star-half-o gray">
+                    </i>
+                    <i class="fa fa-star-o gray">
+                    </i>
+                  </p>
+                  <h5 class="reviewer">
+                    Reviewer name
+                  </h5>
+                  <p class="review-date">
+                    Date: 01-01-2014
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros neque. In sapien est, malesuada non interdum id, cursus vel neque.
+                  </p>
+                </div>
+                <div class="review">
+                  <p class="rating">
+                    <i class="fa fa-star light-red">
+                    </i>
+                    <i class="fa fa-star light-red">
+                    </i>
+                    <i class="fa fa-star light-red">
+                    </i>
+                    <i class="fa fa-star-half-o gray">
+                    </i>
+                    <i class="fa fa-star-o gray">
+                    </i>
+                  </p>
+                  <h5 class="reviewer">
+                    Reviewer name
+                  </h5>
+                  <p class="review-date">
+                    Date: 01-01-2014
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros neque. In sapien est, malesuada non interdum id, cursus vel neque.
+                  </p>
+                </div>
+              </div>
+              <div class="tab-content" id="tags">
+                <div class="tag">
+                  Add Tags :
+                  <input type="text" name="">
+                  <input type="submit" value="Tag">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">
+          </div>
+          <div id="comment" class="col-md-8 col-sm-9 col-xs-12">
+            <h3 style="margin-bottom: 30px;">Bình luận sản phẩm</h3>
+            <form method="post" action="/sanpham/create/binhluan">
+              <input type="hidden" name="masp" value="<%=masp%>"/>
+              <div class="form-group">
+                <label style="margin-bottom:15px;">Tên</label>
+                <input type="text" name="ten" required="" class="form-control" placeholder="Tên">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" style="margin-bottom:15px;">Nội dung</label>
+                <textarea class="form-control" name="noidung" required="" placeholder="Nội Dung"></textarea>
+              </div>
+              <button type="submit" name="submit" class="btn btn-default">Bình luận</button>
+            </form>
+          </div>
+    
+            <div id="comments" class="col-md-12 col-sm-12 col-xs-12">
+              <% if(binhluan){ %>
+                <%   binhluan.forEach(function(binhluan){  %>
+                <ul>
+                  <li class="comm-name">  <%= binhluan.ten %></li>
+                  <li class="comm-time"><%= binhluan.ngay.getDate()+'-'+(binhluan.ngay.getMonth()+1)+'-'+binhluan.ngay.getFullYear(); %></li>
+                  <li class="comm-details">
+                    <p>
+                        <%= binhluan.noidung %>
+                    </p>
+                  </li>
+                </ul>
+                <% }) %>
+              <%}%>
+            </div>
+        
+          <div class="clearfix">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="special-deal leftbar">
+            <h4 class="title">
+              Special
+              <strong>
+                Deals
+              </strong>
+            </h4>
+            <%   sanpham2.forEach(function(sanpham){  %>
+              <div class="special-item">
+  
+                <div class="product-image">
+                  <a href="/sanpham/chitiet/<%= sanpham.masp %>">
+                    <img src="../../images/images/<%=sanpham.anh%>" alt="" style="width: px; height: 60px;">
+                  </a>
+                </div>
+                <div class="product-info">
+                  <p>
+                    <%= sanpham.tensp %>
+                  </p>
+                  <% if(sanpham.giakm > 0){ %>
+                    <h5 class="price"><%= sanpham.giakm.toLocaleString() %> VND</h5>
+                        <%}
+                        else{%>     
+                           <h5 class="price"><%= sanpham.giaban.toLocaleString() %> VND</h5> <%}%>
+                  
+                </div>
+  
+              </div>
+              <% }) %>
+          </div>
+  
+  
+  
+        </div>
+      </div>
+      <div class="clearfix">
+      </div>
+  
+    </div>
+  </div>
+<%- include('layout/footer.ejs')%>

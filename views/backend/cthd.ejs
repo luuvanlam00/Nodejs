@@ -1,0 +1,55 @@
+<%- include('layout/header.ejs')%>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h1>Chi tiết hóa đơn </h1>
+            </div>
+            <div class="ibox-content">
+                <% if(success_msg != ''){ %> 
+                    <div class="alert alert-success"><%= success_msg%></div>
+               <% } %>
+                <table class="display" id="myTable">
+                    <thead>
+                    <tr>
+            
+                                    <th >STT </th>
+                                    <th >Sản phẩm </th>
+                                    <th >Số lượng </th>
+                                    <th >Đơn giá </th>
+                                    <th >Tổng tiền </th>
+                        
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% var i = 0 ;cthd.forEach(function(cthd){ i++; %>
+                    <tr>
+                      
+                        <td><%= i %></td>
+                        <td><%=cthd.tensp %></td>
+                        <td><%=cthd.soluong %></td>
+                        <td><%=cthd.giaban.toLocaleString() %></td>
+                        <td><%=(cthd.soluong*cthd.giaban).toLocaleString() %></td>
+                      
+                    </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+                <h2>Tổng tiền hóa đơn: <%=tongtien[0].tongtien.toLocaleString()%></h2>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+  <script>
+       $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+  </script>
+<%- include('layout/footer.ejs')%>

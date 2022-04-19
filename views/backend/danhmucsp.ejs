@@ -1,0 +1,53 @@
+<%- include('layout/header.ejs')%>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h1>Quản lý danh mục</h1>
+                <td><a href="/quantri/danhmuc/getcreate"><button type="button" class="btn btn-primary ">Thêm mới</button></a></td>
+          
+            </div>
+            <div class="ibox-content">
+                <% if(success_msg != ''){ %> 
+                    <div class="alert alert-success"><%= success_msg%></div>
+               <% } %>
+                <table class="display" id="myTable">
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên danh mục</th>
+                        <th>Công cụ</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% var i = 0; danhmuc.forEach(function(danhmuc){ i++; %>
+                    <tr>
+                      
+                        <td><%=i %></td>
+                        <td><%=danhmuc.tenloai %></td>
+                        <td><a   href="/quantri/danhmuc/getupdate/<%=danhmuc.maloai %>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a>
+                            <a onclick="return xoa();" href="/quantri/danhmuc/delete/<%=danhmuc.maloai %>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
+                        
+                      
+                    </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+  <script>
+       $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+  </script>
+<%- include('layout/footer.ejs')%>
